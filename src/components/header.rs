@@ -45,15 +45,14 @@ impl Component for Header {
     fn view(&self) -> Html {
 
         html! {
-         <div class="h-screen w-screen flex bg-gray-200">
          
             <aside
-               class="flex flex-col items-center bg-white text-gray-700 shadow h-full">
+               class="flex flex-col items-center bg-white text-gray-700 shadow w-1/5 h-full">
                
          
                <div class="h-24 mt-6 flex items-center w-full">
                   
-                  <a class="h-24 w-24 mt-6 mx-auto">
+                  <a class="h-32 w-32 mt-6 mx-auto">
                      <img
                         class="h-24 w-24 mx-auto"
                         src="https://i.ibb.co/4VTGxSx/Shieldhost.png"
@@ -64,14 +63,14 @@ impl Component for Header {
                <ul>
                   <Headerlist svgpath={"M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2
                                       2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1
-                                       1 0 011 1v4a1 1 0 001 1m-6 0h6"} svgname={"Home"} svgroute={"AppRoute::Home"}/>
+                                       1 0 011 1v4a1 1 0 001 1m-6 0h6"} svgname={"Home"}/>
                   <Headerlist svgpath={"M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2
                                       2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2
-                                      0 012-2h6a2 2 0 012 2v2M7 7h10"} svgname={"Products"} svgroute={"AppRoute::Home"}/>
+                                      0 012-2h6a2 2 0 012 2v2M7 7h10"} svgname={"Products"}/>
                   
                   <Headerlist svgpath={"M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0
                                       1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0
-                                      3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"} svgname={"Why Us?"} svgroute={"AppRoute::Home"}/>
+                                      3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"} svgname={"Why Us?"}/>
 
                   <Headerlist svgpath={"M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1
                                       0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0
@@ -87,12 +86,12 @@ impl Component for Header {
                                       1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0
                                       2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0
                                       0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65
-                                      1.65 0 0 0-1.51 1z"} svgname={"Support"} svgroute={"AppRoute::Home"}/>
+                                      1.65 0 0 0-1.51 1z"} svgname={"Support"}/>
 
                   <Headerlist svgpath={"M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002
                                       6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388
                                        6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3
-                                      0 11-6 0v-1m6 0H9"} svgname={"Home"} svgroute={"AppRoute::Home"}/>
+                                      0 11-6 0v-1m6 0H9"} svgname={"Client Area"}/>
          
                </ul>
          
@@ -121,7 +120,6 @@ impl Component for Header {
                </div>*/
          
             </aside>
-         </div>
         }
     }
 }

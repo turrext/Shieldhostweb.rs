@@ -1,6 +1,8 @@
 #![recursion_limit = "256"]
 mod components;
 use crate::components::Header;
+use crate::components::Homec;
+
 
 use serde_derive::Deserialize;
 use wasm_bindgen::prelude::*;
@@ -13,11 +15,10 @@ use yew::services::{
 };
 use crate::router::AppRoute;
 use yew_router::prelude::*;
-mod todo;
 mod router;
 
 pub type Anchor = RouterAnchor<AppRoute>;
-
+mod Pages;
 struct ShieldhostApp {
 }
 
@@ -59,27 +60,40 @@ impl Component for ShieldhostApp {
     }
 
     fn view(&self) -> Html {
+
+        //&arry.val1 = "e3";
+        //&arry.info1 = "e3".to_string();
+        //&arry.val2 = "e3".to_string();
+        //&arry.info2 = "e3".to_string();
+        //&arry.val3 = "e3".to_string();
+        //&arry.info3 = "e3".to_string();
+        //&arry.val4 = "e3".to_string();
+        //&arry.info4 = "e3".to_string();
         //let icon1shi = ({<svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
         html! {
-            <div class=classes!("todo")>
-                /*<div class="mui-appbar">
-                  <table width="100%">
-                    <tr style="vertical-align:middle;">
-                      <td class="mui--appbar-height"><Anchor route=AppRoute::Home>{"Home"}</Anchor></td>
-                      
-                      <td class="mui--appbar-height" align="right">{"Right Side"}</td>
-                    </tr>
-                  </table>
-                </div>*/
-                <Header icon1="" icon2="" icon3="" icon4="" icon5="" icon6="" link1="" link2="" link3="" link4="" link5="" link6="" />
-                <div class=classes!("nav")>
-                    
-                </div>
-                <div class=classes!("content")>
-                    
-                </div>
-            </div>
+            <div class="h-screen w-screen flex bg-gray-200">
+                    <Header icon1="" icon2="" icon3="" icon4="" icon5="" icon6="" link1="" link2="" link3="" link4="" link5="" link6="" />
+                    <div class=classes!("content")>
+                    <Router<AppRoute, ()>
+                                render = Router::render(move |switch: AppRoute| {
+                                    match switch {
+                                        AppRoute::Products => {
+                                            html! {
+                                                <div>
+                                                    <Pages::Products::Products/>
+                                                </div>}
+                                        }
+                                        AppRoute::ShieldhostApp => {
+                                            html! {
+                                                <Homec />
+                                            }
+                                        }
+                                    }
+                                })
+                            />
+                        </div>
+                    </div>
         }
     }
 

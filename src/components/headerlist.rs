@@ -1,17 +1,18 @@
-use yew::{prelude::*, html::IntoOptPropValue};
+use yew::{prelude::*, html::{IntoOptPropValue, ImplicitClone}};
 use crate::router::AppRoute;
-
+use crate::components::H2;
 use yew_router::prelude::*;
 pub type Anchor = RouterAnchor<AppRoute>;
 pub struct Headerlist {
     props: Props,
 }
 
+
+
 #[derive(Properties, Clone)]
 pub struct Props {
    pub svgpath: String,
    pub svgname: String,
-   pub svgroute: AppRoute,
 }
 
 impl Component for Headerlist {
@@ -33,35 +34,72 @@ impl Component for Headerlist {
     }
 
     fn view(&self) -> Html {
-      let mut svgpaths = (self.props.svgpath).to_string();
+        let mut svgpaths = (self.props.svgpath).to_string();
+        let mut svgnames = (self.props.svgname).to_string();
       //let mut svgroutes = (self.props.svgroute).to_string();
         //svgpaths.push_str(&self.props.svgpath);
-        html! {
+        if &svgnames == "Home" || &svgnames == "Products" || &svgnames == "Why Us?" || &svgnames == "Support" || &svgnames == "Client Area"  {
+            html! {
                   
-                  <li class="hover:bg-gray-100">
-                     <a
-                        class="h-16 px-6 flex flex items-center w-full
-                        focus:text-orange-500">
+                <li class="hover:bg-gray-100">
+                   <a
+                      class="h-16 px-6 flex flex items-center w-full
+                      focus:text-orange-500">
 
-                        <svg
-                           class="h-7 w-7 mr-6 float-left align-left mr-6 float-left align-left"
-                           xmlns="http://www.w3.org/2000/svg"
-                           width="24"
-                           height="24"
-                           viewBox="0 0 24 24"
-                           fill="none"
-                           stroke="currentColor"
-                           stroke-width="2"
-                           stroke-linecap="round"
-                           stroke-linejoin="round">
-                           <path strokeLinecap="round" strokeLinejoin="round" 
-                             d={svgpaths}/>
-                        </svg>
-                        <h2 class="px-6 text-gray-700 text-xl title-font align-center text-center font-bold"><Anchor route=(&self.props.svgroute)>{&self.props.svgname}</Anchor></h2>
-                     </a>
+                      <svg
+                         class="h-7 w-7 mr-6 float-left align-left mr-6 float-left align-left"
+                         xmlns="http://www.w3.org/2000/svg"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                         <path strokeLinecap="round" strokeLinejoin="round" 
+                           d={svgpaths}/>
+                      </svg>
+                      <H2 svgpath={svgnames}/>
+                   </a>
 
-                  </li>
-         
+                </li>
+       
+      }
+
+        } else {
+            html! {
+                  
+                <li class="hover:bg-gray-100">
+                   <a
+                      class="h-16 px-6 flex flex items-center w-full
+                      focus:text-orange-500">
+
+                      <svg
+                         class="h-7 w-7 mr-6 float-left align-left mr-6 float-left align-left"
+                         xmlns="http://www.w3.org/2000/svg"
+                         width="24"
+                         height="24"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+                         <path strokeLinecap="round" strokeLinejoin="round" 
+                           d={svgpaths}/>
+                      </svg>
+                      <H2 svgpath={"Error"}/>
+                   </a>
+
+                </li>
+       
+      }
         }
+        
     }
+
+    fn rendered(&mut self, _first_render: bool) {}
+
+    fn destroy(&mut self) {}
 }
